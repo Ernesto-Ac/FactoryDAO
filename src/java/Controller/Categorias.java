@@ -52,7 +52,7 @@ public class Categorias extends HttpServlet {
 
     
     
-    protected void listarCategorias(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+    protected void listaCategorias(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         //Crear instancia a CategoriaDAO
         CategoriaDAO categoria = new CategoriaDAOImplementar();
@@ -66,7 +66,7 @@ public class Categorias extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.listarCategorias(request, response);
+        this.listaCategorias(request, response);
     }
 
     /**
