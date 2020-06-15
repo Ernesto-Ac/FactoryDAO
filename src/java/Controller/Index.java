@@ -58,7 +58,7 @@ public class Index extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Si da error importar la libreria correspondiente import javax.servlet.RequestDispatcher
-       RequestDispatcher dispatcher = getServletContext().getNamedDispatcher("/index.jsp");
+       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
        dispatcher.forward(request, response);
     }
 

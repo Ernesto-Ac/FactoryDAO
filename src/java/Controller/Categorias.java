@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.CategoriaDAO;
 import DAO.CategoriaDAOImplementar;
+import Model.Categoria;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -52,7 +53,8 @@ public class Categorias extends HttpServlet {
 
     
     
-    protected void listaCategorias(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+    protected void listaCategorias(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         //Crear instancia a CategoriaDAO
         CategoriaDAO categoria = new CategoriaDAOImplementar();
@@ -66,7 +68,15 @@ public class Categorias extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.listaCategorias(request, response);
+        String parametro = request.getParameter("opcion");//Capturar el parametro que se esta enviando
+        if(parametro.equals("crear")){//Evaluar si el parametro es crear o listar o cualquier otro
+            String pagina = "/Vistas-Categorias/crearCategoria.jsp";//Vista o formulario para registrar nueva categoria
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagina);
+            dispatcher.forward(request, response);
+        }else{
+            this.listaCategorias(request, response);
+        }
+        
     }
 
     /**
@@ -80,7 +90,15 @@ public class Categorias extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        Categoria categoria = new Categoria();
+        //Se efectua el casting o conversion de datos por que lo ingresado en el formulario es texto
+        categoria.setId_categoria(Integer.parseInt(request.getParameter("id_categoria")));
+        categoria.setNom_categoria(request.getParameter("txtNomCategoria"));
+        categoria.setEstado_categoria(Integer.parseInt(request.getParameter("txtEstadoCategoria")));
+        
+        CategoriaDAO guardaCategoria = new CategoriaDAOImplementar();
+        guardaCategoria.guardarCat(categoria);
+        this.listaCategorias(request, response);
     }
 
     /**
