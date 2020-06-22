@@ -3,6 +3,10 @@
 <div>
     <div class="encabezado">
         Sistema de control de Inventario
+        <a href="index" class="btn btn-primary btn-sm" role="button">Inicio</a>
+        <a href="categorias?opcion=listar" class="btn btn-primary btn-sm" role="button">Categorias</a>
     </div>
     <div class="contenido">
+        
         <!--   Este div no se cierra aqui, se cierran en pie.jspf-->
+
