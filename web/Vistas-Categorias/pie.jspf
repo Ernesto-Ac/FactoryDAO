@@ -1,8 +1,0 @@
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<!--Aqui se deben cerrar los div abiertoss en encabezado.jspf-->
-</div>
-    <div class="pie">
-        &COPY; Jose Ernesto AV;
-    </div>
-</div>
