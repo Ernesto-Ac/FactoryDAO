@@ -11,14 +11,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Control de Inventario</title> 
-        <%@include file="css-js.jspf" %>
+        <%@include file="../Vistas-Parciales/css-js.jspf" %>
     </head>
     <body>
         <!-- Vista parcial de la parte superior de nuestra aplicacion-->
-       <%@include file="encabezado.jspf" %>
+       <%@include file="../Vistas-Parciales/encabezado.jspf" %>
         <h3>Bienvenido</h3>
         
-        <%@include file="pie.jspf" %>
+        <%@include file="../Vistas-Parciales/pie.jspf" %>
         
     </body>
 </html>
